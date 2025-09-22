@@ -1,0 +1,41 @@
+# ChatBuddy – Rule-Based Chatbot
+
+**Author:** Gaauri Javheri
+**Internship:** CodSoft AI Internship
+
+## Project Overview
+
+ChatBuddy is a **simple rule-based chatbot** developed in Python. It interacts with users by responding to greetings, questions about itself, feelings, time, and other predefined queries using **pattern matching with regular expressions**.
+
+This project demonstrates the basics of **Natural Language Processing (NLP)** using rule-based methods and provides a foundation to build more advanced chatbots.
+
+## Features
+
+* **Greeting Recognition:** Responds to "hi", "hello", or "hey".
+* **Self-Introduction:** Answers questions like "who are you" or "your name".
+* **Feelings:** Replies to "how are you" or "how do you feel".
+* **Time Inquiry:** Provides a basic response for questions about time.
+* **Purpose/Help:** Explains what the bot can do.
+* **Exit Commands:** Users can type "bye", "exit", or "quit" to end the chat.
+* **Fallback Response:** Provides a default message for unrecognized input.
+* **Extensible:** Easy to add more rules in the `respond()` function.
+
+## Technology Used
+
+* **Language:** Python 3.x
+* **Libraries:** `re` (for regular expression pattern matching)
+
+## How It Works
+
+1. The chatbot prompts the user for input.
+2. Input is processed and matched against predefined patterns using regular expressions.
+3. If a match is found, the bot replies with the corresponding response.
+4. If no match is found, a fallback response is shown.
+5. The chat continues until the user types an exit command.
+
+## Future Improvements
+
+* Add **real-time clock and date** functionality.
+* Include **jokes, quotes, or small talk**.
+* Expand with **basic math calculations**.
+* Integrate **AI/ML models** for smarter responses.
