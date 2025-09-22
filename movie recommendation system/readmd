@@ -1,0 +1,85 @@
+# Movie Recommendation System - User-Based Collaborative Filtering
+
+## Project Overview
+
+This project implements a **User-Based Collaborative Filtering Movie Recommendation System** using Python and the MovieLens 32M dataset. The goal is to recommend movies to users based on the ratings of similar users.
+
+---
+
+## Dataset
+
+* **Ratings dataset**: `ratings.csv` (contains `userId`, `movieId`, `rating`, `timestamp`)
+* **Movies dataset**: `movies.csv` (contains `movieId`, `title`, `genres`)
+* The datasets are merged to get a table with `userId`, `title`, and `rating`.
+
+Subset of users can be used for testing, e.g., `userId <= 500`.
+
+---
+
+## Steps in the Project
+
+### 1. Data Preprocessing
+
+* Filter a subset of users for testing.
+* Optionally, use only positive ratings (>=3).
+* Handle duplicate ratings by taking the **average rating** for each `(userId, title)` pair.
+
+### 2. Create User-Movie Matrix
+
+* Pivot the data to create a matrix where:
+
+  * Rows = Users
+  * Columns = Movie Titles
+  * Values = Ratings
+* Fill missing values with 0 (movies not rated).
+
+### 3. Compute User Similarity
+
+* Use **Cosine Similarity** to compute similarity between users based on their ratings.
+* Store the similarity in a DataFrame for easy access.
+
+### 4. Recommendation Function
+
+* For a given `user_id`:
+
+  1. Find similar users.
+  2. Identify movies that the user hasn't rated yet.
+  3. Compute weighted ratings based on similarity.
+  4. Return the top N recommended movies.
+
+### 5. Example Usage
+
+```python
+recommended = recommend_movies(1, user_movie_matrix, user_similarity_df)
+print(recommended)
+```
+
+This gives the top recommended movies for User 1.
+
+---
+
+## Libraries Used
+
+* `pandas` for data manipulation
+* `sklearn.metrics.pairwise.cosine_similarity` for computing similarity
+
+---
+
+## Notes
+
+* Using a **subset of users** is helpful for testing, but for the full dataset, you may need optimizations.
+* Filtering ratings (e.g., >=3) improves recommendations for positive experiences.
+* Duplicate ratings must be handled, otherwise pivoting will fail.
+
+---
+
+## Future Improvements
+
+* Implement **Item-Based Collaborative Filtering**.
+* Use **Matrix Factorization** or **SVD** for better recommendations.
+* Include movie genres and other metadata for hybrid recommendations.
+* Optimize for the **full MovieLens 32M dataset** using sparse matrices to save memory.
+
+---
+
+This project is suitable for learning **Collaborative Filtering** and **User-Based Recommendation Systems** in Python.
